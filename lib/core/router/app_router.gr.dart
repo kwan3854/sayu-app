@@ -21,6 +21,19 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const BriefingScreen(),
       );
     },
+    IssueDetailRoute.name: (routeData) {
+      final pathParams = routeData.inheritedPathParams;
+      final args = routeData.argsAs<IssueDetailRouteArgs>(
+          orElse: () =>
+              IssueDetailRouteArgs(issueId: pathParams.getString('issueId')));
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: IssueDetailScreen(
+          key: args.key,
+          issueId: args.issueId,
+        ),
+      );
+    },
     LoginRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -69,6 +82,19 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const SplashScreen(),
       );
     },
+    WriteReflectionRoute.name: (routeData) {
+      final args = routeData.argsAs<WriteReflectionRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: WriteReflectionScreen(
+          key: args.key,
+          issueId: args.issueId,
+          issueTitle: args.issueTitle,
+          perspectivesSeen: args.perspectivesSeen,
+          predictionMade: args.predictionMade,
+        ),
+      );
+    },
   };
 }
 
@@ -84,6 +110,45 @@ class BriefingRoute extends PageRouteInfo<void> {
   static const String name = 'BriefingRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [IssueDetailScreen]
+class IssueDetailRoute extends PageRouteInfo<IssueDetailRouteArgs> {
+  IssueDetailRoute({
+    Key? key,
+    required String issueId,
+    List<PageRouteInfo>? children,
+  }) : super(
+          IssueDetailRoute.name,
+          args: IssueDetailRouteArgs(
+            key: key,
+            issueId: issueId,
+          ),
+          rawPathParams: {'issueId': issueId},
+          initialChildren: children,
+        );
+
+  static const String name = 'IssueDetailRoute';
+
+  static const PageInfo<IssueDetailRouteArgs> page =
+      PageInfo<IssueDetailRouteArgs>(name);
+}
+
+class IssueDetailRouteArgs {
+  const IssueDetailRouteArgs({
+    this.key,
+    required this.issueId,
+  });
+
+  final Key? key;
+
+  final String issueId;
+
+  @override
+  String toString() {
+    return 'IssueDetailRouteArgs{key: $key, issueId: $issueId}';
+  }
 }
 
 /// generated route for
@@ -196,4 +261,57 @@ class SplashRoute extends PageRouteInfo<void> {
   static const String name = 'SplashRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [WriteReflectionScreen]
+class WriteReflectionRoute extends PageRouteInfo<WriteReflectionRouteArgs> {
+  WriteReflectionRoute({
+    Key? key,
+    required String issueId,
+    required String issueTitle,
+    required List<String> perspectivesSeen,
+    String? predictionMade,
+    List<PageRouteInfo>? children,
+  }) : super(
+          WriteReflectionRoute.name,
+          args: WriteReflectionRouteArgs(
+            key: key,
+            issueId: issueId,
+            issueTitle: issueTitle,
+            perspectivesSeen: perspectivesSeen,
+            predictionMade: predictionMade,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'WriteReflectionRoute';
+
+  static const PageInfo<WriteReflectionRouteArgs> page =
+      PageInfo<WriteReflectionRouteArgs>(name);
+}
+
+class WriteReflectionRouteArgs {
+  const WriteReflectionRouteArgs({
+    this.key,
+    required this.issueId,
+    required this.issueTitle,
+    required this.perspectivesSeen,
+    this.predictionMade,
+  });
+
+  final Key? key;
+
+  final String issueId;
+
+  final String issueTitle;
+
+  final List<String> perspectivesSeen;
+
+  final String? predictionMade;
+
+  @override
+  String toString() {
+    return 'WriteReflectionRouteArgs{key: $key, issueId: $issueId, issueTitle: $issueTitle, perspectivesSeen: $perspectivesSeen, predictionMade: $predictionMade}';
+  }
 }

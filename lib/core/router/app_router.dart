@@ -7,8 +7,10 @@ import '../../features/auth/presentation/pages/login_screen.dart';
 import '../../features/auth/presentation/pages/register_screen.dart';
 import '../../features/main/presentation/pages/main_screen.dart';
 import '../../features/briefing/presentation/pages/briefing_screen.dart';
+import '../../features/briefing/presentation/pages/issue_detail_screen.dart';
 import '../../features/prediction/presentation/pages/prediction_screen.dart';
 import '../../features/reflection/presentation/pages/reflection_screen.dart';
+import '../../features/reflection/presentation/pages/write_reflection_screen.dart';
 import '../../features/profile/presentation/pages/profile_screen.dart';
 
 part 'app_router.gr.dart';
@@ -33,6 +35,14 @@ class AppRouter extends _$AppRouter {
         AutoRoute(
           page: RegisterRoute.page,
           path: '/register',
+        ),
+        AutoRoute(
+          page: IssueDetailRoute.page,
+          path: '/issue/:issueId',
+        ),
+        AutoRoute(
+          page: WriteReflectionRoute.page,
+          path: '/write-reflection',
         ),
         AutoRoute(
           page: MainRoute.page,
