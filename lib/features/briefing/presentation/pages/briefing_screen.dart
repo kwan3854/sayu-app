@@ -135,12 +135,37 @@ class _BriefingScreenState extends State<BriefingScreen> {
     return GestureDetector(
       onTap: () => _navigateToIssueDetail(issue),
       child: PremiumGlassContainer(
-        padding: const EdgeInsets.all(24),
+        padding: EdgeInsets.zero,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // 카테고리 태그
-            Wrap(
+            // 썸네일 이미지
+            ClipRRect(
+              borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
+              child: Image.network(
+                issue.imageUrl,
+                width: double.infinity,
+                height: 200,
+                fit: BoxFit.cover,
+                errorBuilder: (context, error, stackTrace) => Container(
+                  width: double.infinity,
+                  height: 200,
+                  color: AppColors.gray800,
+                  child: Icon(
+                    Icons.image_not_supported,
+                    color: AppColors.textTertiary,
+                    size: 48,
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(24),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // 카테고리 태그
+                  Wrap(
               spacing: 8,
               children: issue.categories.map((category) => Container(
                 padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
@@ -161,10 +186,10 @@ class _BriefingScreenState extends State<BriefingScreen> {
                   ),
                 ),
               )).toList(),
-            ),
-            const SizedBox(height: 16),
-            // 헤드라인
-            Text(
+                  ),
+                  const SizedBox(height: 16),
+                  // 헤드라인
+                  Text(
               issue.headline,
               style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                     fontWeight: FontWeight.w600,
@@ -181,10 +206,10 @@ class _BriefingScreenState extends State<BriefingScreen> {
                   ),
               maxLines: 3,
               overflow: TextOverflow.ellipsis,
-            ),
-            const SizedBox(height: 20),
-            // CTA
-            Row(
+                  ),
+                  const SizedBox(height: 20),
+                  // CTA
+                  Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
@@ -211,6 +236,9 @@ class _BriefingScreenState extends State<BriefingScreen> {
                   ],
                 ),
               ],
+                  ),
+                ],
+              ),
             ),
           ],
         ),
@@ -233,6 +261,27 @@ class _BriefingScreenState extends State<BriefingScreen> {
         ),
         child: Row(
           children: [
+            // 썸네일 이미지
+            ClipRRect(
+              borderRadius: BorderRadius.circular(12),
+              child: Image.network(
+                issue.imageUrl,
+                width: 80,
+                height: 80,
+                fit: BoxFit.cover,
+                errorBuilder: (context, error, stackTrace) => Container(
+                  width: 80,
+                  height: 80,
+                  color: AppColors.gray800,
+                  child: Icon(
+                    Icons.image_not_supported,
+                    color: AppColors.textTertiary,
+                    size: 32,
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(width: 16),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -246,25 +295,26 @@ class _BriefingScreenState extends State<BriefingScreen> {
                       fontWeight: FontWeight.w500,
                     ),
                   ),
-                  const SizedBox(height: 8),
+                  const SizedBox(height: 4),
                   // 헤드라인
                   Text(
                     issue.headline,
                     style: Theme.of(context).textTheme.titleMedium?.copyWith(
                           fontWeight: FontWeight.w500,
-                          height: 1.3,
+                          height: 1.2,
                         ),
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                   ),
-                  const SizedBox(height: 8),
+                  const SizedBox(height: 4),
                   // 요약 (짧게)
                   Text(
                     issue.summary,
                     style: Theme.of(context).textTheme.bodySmall?.copyWith(
                           color: AppColors.textSecondary,
+                          height: 1.3,
                         ),
-                    maxLines: 2,
+                    maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   ),
                 ],

@@ -89,6 +89,8 @@ AI 피해 구제 방안 등을 담고 있습니다.
         'expertName': '김민수',
         'expertTitle': 'KAIST AI대학원 교수',
         'stance': 'neutral',
+        'perspectiveType': '전문 분야',
+        'perspectiveDetail': 'AI 학계 전문가 관점',
         'content': '''
 이번 AI 규제법은 필요했던 첫걸음입니다. 그러나 규제의 구체적인 실행 방안이 중요합니다. 
 너무 엄격한 규제는 국내 AI 산업의 경쟁력을 약화시킬 수 있고, 너무 느슨한 규제는 
@@ -105,6 +107,8 @@ AI 피해 구제 방안 등을 담고 있습니다.
         'expertName': '이정희',
         'expertTitle': '벤처기업협회 AI분과 위원장',
         'stance': 'negative',
+        'perspectiveType': '이해관계자',
+        'perspectiveDetail': '기업 입장',
         'content': '''
 미국과 중국이 AI 개발에 전력투구하는 상황에서 우리만 규제의 족쇄를 채우는 것은 자충수입니다. 
 특히 사전 영향평가 의무화는 스타트업들에게 큰 부담이 될 것입니다. 개발 속도가 생명인 
@@ -121,6 +125,8 @@ AI 산업에서 행정 절차가 늘어나면 혁신이 늦어질 수밖에 없�
         'expertName': '박선영',
         'expertTitle': '시민단체 AI감시네트워크 대표',
         'stance': 'positive',
+        'perspectiveType': '이해관계자',
+        'perspectiveDetail': '시민사회 입장',
         'content': '''
 AI가 채용, 대출 심사, 의료 진단 등 우리 삶의 중요한 결정에 관여하는 시대입니다. 
 이런 상황에서 최소한의 안전장치도 없이 기업의 자율에만 맡기는 것은 무책임합니다. 
@@ -140,6 +146,8 @@ AI 산업 발전에도 도움이 될 것입니다.
         'expertName': '최윤경',
         'expertTitle': '한국금융연구원 선임연구위원',
         'stance': 'positive',
+        'perspectiveType': '전문 분야',
+        'perspectiveDetail': '금융 전문가 관점',
         'content': '''
 현재 물가가 안정세를 보이고 있지만 여전히 목표치를 상회하고 있습니다. 성급한 금리 인하는 
 물가 불안을 재점화시킬 수 있습니다. 특히 환율 변동성이 큰 상황에서 금리 인하는 
@@ -156,6 +164,8 @@ AI 산업 발전에도 도움이 될 것입니다.
         'expertName': '정상훈',
         'expertTitle': '경제정책연구소 소장',
         'stance': 'negative',
+        'perspectiveType': '시간적 관점',
+        'perspectiveDetail': '단기적 영향 중심',
         'content': '''
 물가는 이미 안정 궤도에 진입했고, 오히려 디플레이션 우려가 커지고 있습니다. 
 높은 금리가 기업 투자와 가계 소비를 억제하면서 경기 둔화를 가속화하고 있습니다. 
@@ -172,6 +182,8 @@ AI 산업 발전에도 도움이 될 것입니다.
         'expertName': '한지원',
         'expertTitle': '국제경제연구원 연구위원',
         'stance': 'neutral',
+        'perspectiveType': '지역별',
+        'perspectiveDetail': '국제 경제 관점',
         'content': '''
 미중 무역갈등, 중동 정세 불안 등 글로벌 불확실성이 여전히 높습니다. 이런 상황에서 
 섣부른 정책 변경은 오히려 시장 혼란을 가중시킬 수 있습니다. 당분간 금리를 동결하면서 
@@ -190,6 +202,8 @@ AI 산업 발전에도 도움이 될 것입니다.
         'expertName': '임동민',
         'expertTitle': '주택산업연구원 연구위원',
         'stance': 'neutral',
+        'perspectiveType': '전문 분야',
+        'perspectiveDetail': '부동산 전문가 관점',
         'content': '''
 청년 주거 문제 해결을 위한 정부의 의지는 평가할 만합니다. 특히 역세권 중심의 공급은 
 청년들의 수요를 잘 반영한 것입니다. 하지만 10만호라는 목표가 실제로 달성 가능한지, 
@@ -206,6 +220,8 @@ AI 산업 발전에도 도움이 될 것입니다.
         'expertName': '김수진',
         'expertTitle': '청년주거포럼 대표',
         'stance': 'negative',
+        'perspectiveType': '이해관계자',
+        'perspectiveDetail': '청년층 입장',
         'content': '''
 청년 주거 문제의 본질은 높은 집값과 불안정한 일자리입니다. 공공임대 공급이나 대출 확대는 
 임시방편에 불과합니다. 오히려 대출 한도 확대는 전세가 상승을 부추길 수 있습니다. 
@@ -222,6 +238,8 @@ AI 산업 발전에도 도움이 될 것입니다.
         'expertName': '정혜린',
         'expertTitle': '도시계획학과 교수',
         'stance': 'positive',
+        'perspectiveType': '이해관계자',
+        'perspectiveDetail': '정부 정책 입장',
         'content': '''
 이번 대책은 청년층의 특성을 고려한 맞춤형 접근이라는 점에서 의미가 있습니다. 
 역세권 공급, 월세 지원, 주거 상담 등 다각도의 지원책을 마련한 것도 긍정적입니다. 
@@ -283,21 +301,123 @@ AI 산업 발전에도 도움이 될 것입니다.
       expertTitle: data['expertTitle'],
       expertImageUrl: null,
       stance: data['stance'],
+      perspectiveType: data['perspectiveType'] ?? '전문 분야',
+      perspectiveDetail: data['perspectiveDetail'] ?? '일반적 관점',
       interactiveQuestions: List<String>.from(data['questions']),
       createdAt: DateTime.now(),
     )).toList();
+    
+    // 배경 지식 및 출처 정보 추가
+    final backgroundKnowledge = [
+      BackgroundKnowledge(
+        id: '${issueId}_bg_1',
+        title: '이전 관련 정책 흐름',
+        content: '해당 이슈와 관련된 과거 주요 정책들과 그 결과를 요약한 내용...',
+        category: '역사적 맥락',
+      ),
+      BackgroundKnowledge(
+        id: '${issueId}_bg_2',
+        title: '핵심 법률 및 규제',
+        content: '이 이슈와 관련된 현행 법률 및 규제에 대한 설명...',
+        category: '관련 법규',
+      ),
+    ];
+    
+    final sources = [
+      NewsSource(
+        title: '한국은행, 기준금리 동결…"물가·경기 불확실성"',
+        publisher: '한국경제신문',
+        url: 'https://www.hankyung.com/example',
+        publishedAt: DateTime.now().subtract(const Duration(hours: 2)),
+      ),
+      NewsSource(
+        title: 'AI 규제법 국회 통과…"혁신과 규제의 균형 찾아야"',
+        publisher: '조선일보',
+        url: 'https://www.chosun.com/example',
+        publishedAt: DateTime.now().subtract(const Duration(hours: 4)),
+      ),
+      NewsSource(
+        title: '청년 주거 대책 발표…역세권 10만호 공급',
+        publisher: '중앙일보',
+        url: 'https://www.joongang.co.kr/example',
+        publishedAt: DateTime.now().subtract(const Duration(hours: 6)),
+      ),
+    ];
+    
+    // 팩트 체크 데이터
+    final List<FactCheck> factChecks = _getFactChecksForIssue(issueId);
     
     return IssueDetail(
       issue: issue,
       detailedSummary: issueData['detailedSummary'] ?? issueData['summary'],
       keyTerms: List<String>.from(issueData['keyTerms'] ?? []),
       termDefinitions: Map<String, String>.from(issueData['termDefinitions'] ?? {}),
+      backgroundKnowledge: backgroundKnowledge,
       dataVisualizations: [], // TODO: Add mock chart data
       perspectives: perspectives,
-      sourcesUrls: [
-        'https://example.com/source1',
-        'https://example.com/source2',
-      ],
+      sources: sources,
+      factChecks: factChecks,
     );
+  }
+  
+  static List<FactCheck> _getFactChecksForIssue(String issueId) {
+    switch (issueId) {
+      case '1': // AI 규제법
+        return [
+          FactCheck(
+            id: 'fc1_1',
+            claim: 'EU의 AI Act가 과도한 규제로 혁신을 저해하고 있다',
+            verdict: '논란의 여지',
+            explanation: 'EU AI Act 시행 이후 일부 기업들이 규제 준수 비용 증가를 호소하고 있으나, 동시에 AI 신뢰성 향상으로 시장 확대 효과도 나타나고 있습니다. 스탠포드 대학 연구에 따르면 규제 도입 후 AI 투자는 오히려 15% 증가했습니다.',
+            sources: ['Stanford AI Index Report 2024', 'EU Commission AI Act Impact Assessment'],
+          ),
+          FactCheck(
+            id: 'fc1_2',
+            claim: '고위험 AI 영향평가에 소요되는 비용이 중소기업에게 큰 부담',
+            verdict: '대체로 사실',
+            explanation: '한국소프트웨어산업협회 조사에 따르면, AI 영향평가 수행 시 평균 3-6개월, 2-5천만원의 비용이 소요됩니다. 매출 10억 미만 스타트업의 경우 연 매출의 2-5%에 해당하는 부담입니다.',
+            sources: ['한국SW산업협회 AI규제영향 실태조사 2024'],
+          ),
+        ];
+      
+      case '2': // 기준금리
+        return [
+          FactCheck(
+            id: 'fc2_1',
+            claim: '현재 물가상승률이 한국은행 목표치(2%)에 근접했다',
+            verdict: '사실',
+            explanation: '2024년 11월 소비자물가상승률은 2.3%로 한국은행의 중기 물가안정목표 2%에 근접했습니다. 근원물가상승률도 2.1%로 안정세를 보이고 있습니다.',
+            sources: ['통계청 소비자물가동향', '한국은행 물가안정목표 운영상황 점검'],
+          ),
+          FactCheck(
+            id: 'fc2_2',
+            claim: '미국 연준이 금리 인하를 시사하고 있다',
+            verdict: '오해의 소지',
+            explanation: '연준은 "데이터 의존적" 입장을 유지하며 명확한 금리 인하 시점을 제시하지 않았습니다. 시장은 2025년 상반기 인하를 예상하나, 연준 위원들 간에도 의견이 분분합니다.',
+            sources: ['FOMC Meeting Minutes', 'Fed Chair Powell Press Conference'],
+          ),
+        ];
+      
+      case '3': // 청년 주거
+        return [
+          FactCheck(
+            id: 'fc3_1',
+            claim: '역세권 청년주택 10만호가 2030년까지 공급된다',
+            verdict: '대체로 사실',
+            explanation: '정부 발표에 따르면 2030년까지 10만호 공급이 목표이나, 현재까지 확정된 사업지는 3만호 수준입니다. 나머지는 지자체 협의와 예산 확보가 필요한 상황입니다.',
+            sources: ['국토교통부 청년주거 로드맵', '서울시 역세권 청년주택 현황'],
+          ),
+          FactCheck(
+            id: 'fc3_2',
+            claim: '전세대출 한도 확대가 전세가 상승을 부추길 수 있다',
+            verdict: '사실',
+            explanation: '한국개발연구원(KDI) 분석에 따르면, 전세대출 한도 1억원 증가 시 해당 지역 전세가는 평균 3-5% 상승하는 것으로 나타났습니다. 수요 증가가 가격 상승으로 이어지는 구조입니다.',
+            sources: ['KDI 전세시장 분석 보고서', '한국은행 금융안정보고서'],
+          ),
+        ];
+      
+      default:
+        return [];
+    }
   }
 }

@@ -288,14 +288,133 @@ class _WriteReflectionScreenState extends State<WriteReflectionScreen> {
     await ReflectionRepositoryMock.saveReflection(reflection);
     
     if (mounted) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: const Text('성찰이 저장되었습니다'),
-          backgroundColor: AppColors.primary,
-        ),
-      );
-      context.router.maybePop();
+      // AI 피드백을 보여주는 다이얼로그
+      _showAIFeedback(reflection);
     }
+  }
+  
+  void _showAIFeedback(Reflection reflection) {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) => Dialog(
+        backgroundColor: AppColors.surface,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(24),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Icon(
+                Icons.auto_awesome,
+                size: 48,
+                color: AppColors.primary,
+              ),
+              const SizedBox(height: 16),
+              Text(
+                '성찰이 저장되었습니다',
+                style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                      fontWeight: FontWeight.w600,
+                    ),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 24),
+              Container(
+                padding: const EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  color: AppColors.background,
+                  borderRadius: BorderRadius.circular(12),
+                  border: Border.all(
+                    color: AppColors.gray800,
+                    width: 1,
+                  ),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.psychology_outlined,
+                          size: 20,
+                          color: AppColors.secondary,
+                        ),
+                        const SizedBox(width: 8),
+                        Text(
+                          'AI 사고 분석',
+                          style: TextStyle(
+                            color: AppColors.secondary,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 12),
+                    Text(
+                      _generateAIFeedback(reflection),
+                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                            height: 1.5,
+                          ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 24),
+              Row(
+                children: [
+                  Expanded(
+                    child: TextButton(
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                        context.router.maybePop();
+                      },
+                      child: Text(
+                        '닫기',
+                        style: TextStyle(
+                          color: AppColors.textSecondary,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                        // TODO: Navigate to reflection history
+                        context.router.maybePop();
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: AppColors.primary,
+                        foregroundColor: AppColors.background,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                      ),
+                      child: const Text('내 성찰 보기'),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+  
+  String _generateAIFeedback(Reflection reflection) {
+    // Mock AI 피드백 생성
+    final feedbacks = [
+      '${reflection.perspectivesSeen.length}개의 다양한 관점을 검토하신 점이 인상적입니다. 특히 경제적 측면과 사회적 영향을 균형있게 고려하셨네요. 다음번엔 장기적 관점에서의 영향도 생각해보시면 좋겠습니다.',
+      '논리적이고 체계적인 사고 과정을 보여주셨습니다. 근거를 제시하며 주장을 전개한 점이 좋았습니다. 반대 의견에 대한 반박도 추가하면 더욱 설득력 있는 논증이 될 것 같습니다.',
+      '개인적 경험과 객관적 사실을 잘 연결하여 서술하셨습니다. 감정과 이성의 균형이 잘 잡혀있네요. 구체적인 실행 방안까지 제시했다면 더 완성도 높은 성찰이 되었을 것입니다.',
+    ];
+    
+    return feedbacks[DateTime.now().millisecond % feedbacks.length];
   }
   
   List<String> _extractTags(String content) {

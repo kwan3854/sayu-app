@@ -8,7 +8,9 @@ class Perspective extends Equatable {
   final String expertName;
   final String expertTitle;
   final String? expertImageUrl;
-  final String stance; // 'positive', 'negative', 'neutral', 'technical', 'social', 'economic'
+  final String stance; // deprecated - will be removed
+  final String perspectiveType; // '이해관계자', '시간적 관점', '전문 분야', '지역별', '철학적' 등
+  final String perspectiveDetail; // '정부 입장', '단기적 영향', '경제학자 관점' 등 구체적 설명
   final List<String> interactiveQuestions;
   final DateTime createdAt;
 
@@ -21,6 +23,8 @@ class Perspective extends Equatable {
     required this.expertTitle,
     this.expertImageUrl,
     required this.stance,
+    required this.perspectiveType,
+    required this.perspectiveDetail,
     required this.interactiveQuestions,
     required this.createdAt,
   });
@@ -35,6 +39,8 @@ class Perspective extends Equatable {
         expertTitle,
         expertImageUrl,
         stance,
+        perspectiveType,
+        perspectiveDetail,
         interactiveQuestions,
         createdAt,
       ];
