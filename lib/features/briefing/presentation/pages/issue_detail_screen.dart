@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import '../../../../core/router/app_router.dart';
+import '../../../../core/router/app_router.gr.dart';
 import '../../../../shared/theme/app_colors.dart';
 import '../../../../shared/widgets/premium_glass_container.dart';
 import '../../../../shared/widgets/zen_container.dart';

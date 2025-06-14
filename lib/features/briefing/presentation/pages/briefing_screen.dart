@@ -5,7 +5,7 @@ import '../../../../shared/theme/app_colors.dart';
 import '../../../../shared/widgets/premium_glass_container.dart';
 import '../../domain/entities/issue.dart';
 import '../../data/repositories/issue_repository_mock.dart';
-import '../../../../core/router/app_router.dart';
+import '../../../../core/router/app_router.gr.dart';
 
 @RoutePage()
 class BriefingScreen extends StatefulWidget {

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import '../../../../shared/theme/app_colors.dart';
 import '../../../../shared/widgets/premium_glass_container.dart';
-import '../../../../shared/widgets/zen_container.dart';
 import '../../domain/entities/prediction_challenge.dart';
 import '../../data/repositories/prediction_repository_mock.dart';
 
@@ -19,7 +18,7 @@ class _PredictionScreenState extends State<PredictionScreen> with SingleTickerPr
   late TabController _tabController;
   List<PredictionChallenge>? _predictions;
   bool _isLoading = true;
-  Map<String, String> _selectedOptions = {};
+  final Map<String, String> _selectedOptions = {};
 
   @override
   void initState() {
@@ -281,7 +280,7 @@ class _PredictionScreenState extends State<PredictionScreen> with SingleTickerPr
                   ),
                 ),
               );
-            }).toList(),
+            }),
             
             const SizedBox(height: 20),
             
@@ -342,6 +341,8 @@ class _PredictionScreenState extends State<PredictionScreen> with SingleTickerPr
 
   Future<void> _submitPrediction(String challengeId, String selectedOption) async {
     await PredictionRepositoryMock.submitPrediction(challengeId, selectedOption);
+    
+    if (!mounted) return;
     
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(

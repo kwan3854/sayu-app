@@ -90,7 +90,7 @@ class _ReflectionScreenState extends State<ReflectionScreen> {
                         else
                           ..._reflections!.map((reflection) => 
                             _buildReflectionCard(reflection)
-                          ).toList(),
+                          ),
                       ],
                     ),
                   ),
