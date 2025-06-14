@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/material.dart';
 
 // Import all screens
 import '../../features/auth/presentation/pages/splash_screen.dart';
