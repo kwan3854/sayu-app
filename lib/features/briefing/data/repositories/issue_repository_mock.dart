@@ -82,7 +82,7 @@ AI 피해 구제 방안 등을 담고 있습니다.
     }
   ];
 
-  static final List<Map<String, dynamic>> _perspectives = {
+  static final Map<String, List<Map<String, dynamic>>> _perspectives = {
     '1': [
       {
         'title': '혁신과 규제의 균형점을 찾아야',
@@ -273,7 +273,7 @@ AI 산업 발전에도 도움이 될 것입니다.
       importance: issueData['importance'],
     );
     
-    final perspectivesData = _perspectives[issueId] ?? [];
+    final List<Map<String, dynamic>> perspectivesData = _perspectives[issueId] ?? [];
     final perspectives = perspectivesData.map((data) => Perspective(
       id: '${issueId}_${perspectivesData.indexOf(data)}',
       issueId: issueId,

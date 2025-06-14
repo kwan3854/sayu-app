@@ -294,7 +294,7 @@ class _WriteReflectionScreenState extends State<WriteReflectionScreen> {
           backgroundColor: AppColors.primary,
         ),
       );
-      context.router.pop();
+      context.router.maybePop();
     }
   }
   

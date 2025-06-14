@@ -4,7 +4,6 @@ import 'package:injectable/injectable.dart';
 @lazySingleton
 class PerplexityApiService {
   final Dio _dio;
-  static const String _baseUrl = 'https://api.perplexity.ai';
   
   PerplexityApiService(@Named('perplexityDio') this._dio);
   
@@ -193,9 +192,9 @@ JSON 형식으로 응답해주세요.
   
   List<Map<String, dynamic>> _parsePerspectives(Map<String, dynamic> response) {
     try {
-      final content = response['choices'][0]['message']['content'];
       // Parse JSON response and extract perspectives
       // This is a simplified version - actual implementation would need proper JSON parsing
+      // TODO: Implement actual parsing logic when API response format is defined
       return [];
     } catch (e) {
       throw Exception('Failed to parse perspectives: $e');
