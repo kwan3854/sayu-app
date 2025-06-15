@@ -21,6 +21,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const BriefingScreen(),
       );
     },
+    DailyBriefingRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const DailyBriefingScreen(),
+      );
+    },
     IssueDetailRoute.name: (routeData) {
       final pathParams = routeData.inheritedPathParams;
       final args = routeData.argsAs<IssueDetailRouteArgs>(
@@ -44,6 +50,16 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const MainScreen(),
+      );
+    },
+    NewsDetailRoute.name: (routeData) {
+      final args = routeData.argsAs<NewsDetailRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: NewsDetailScreen(
+          key: args.key,
+          newsItem: args.newsItem,
+        ),
       );
     },
     OnboardingRoute.name: (routeData) {
@@ -113,6 +129,20 @@ class BriefingRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [DailyBriefingScreen]
+class DailyBriefingRoute extends PageRouteInfo<void> {
+  const DailyBriefingRoute({List<PageRouteInfo>? children})
+      : super(
+          DailyBriefingRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'DailyBriefingRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
 /// [IssueDetailScreen]
 class IssueDetailRoute extends PageRouteInfo<IssueDetailRouteArgs> {
   IssueDetailRoute({
@@ -177,6 +207,44 @@ class MainRoute extends PageRouteInfo<void> {
   static const String name = 'MainRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [NewsDetailScreen]
+class NewsDetailRoute extends PageRouteInfo<NewsDetailRouteArgs> {
+  NewsDetailRoute({
+    Key? key,
+    required NewsItem newsItem,
+    List<PageRouteInfo>? children,
+  }) : super(
+          NewsDetailRoute.name,
+          args: NewsDetailRouteArgs(
+            key: key,
+            newsItem: newsItem,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'NewsDetailRoute';
+
+  static const PageInfo<NewsDetailRouteArgs> page =
+      PageInfo<NewsDetailRouteArgs>(name);
+}
+
+class NewsDetailRouteArgs {
+  const NewsDetailRouteArgs({
+    this.key,
+    required this.newsItem,
+  });
+
+  final Key? key;
+
+  final NewsItem newsItem;
+
+  @override
+  String toString() {
+    return 'NewsDetailRouteArgs{key: $key, newsItem: $newsItem}';
+  }
 }
 
 /// generated route for

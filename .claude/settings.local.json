@@ -36,7 +36,14 @@
       "Bash(chmod:*)",
       "Bash(/Users/kwanjoonglee/IdeaProjects/sayu/scripts/test_auth_issues.sh)",
       "Bash(/Users/kwanjoonglee/IdeaProjects/sayu/scripts/test_flutter_auth.sh)",
-      "Bash(supabase db:*)"
+      "Bash(supabase db:*)",
+      "WebFetch(domain:docs.perplexity.ai)",
+      "Bash(supabase functions deploy:*)",
+      "Bash(pkill:*)",
+      "Bash(supabase link:*)",
+      "Bash(psql:*)",
+      "Bash(supabase stop:*)",
+      "Bash(supabase start:*)"
     ],
     "deny": []
   }

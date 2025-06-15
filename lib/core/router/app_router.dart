@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import '../../features/briefing/domain/entities/daily_briefing.dart';
 
 // Import all screens
 import '../../features/auth/presentation/pages/splash_screen.dart';
@@ -8,6 +9,8 @@ import '../../features/auth/presentation/pages/login_screen.dart';
 import '../../features/auth/presentation/pages/register_screen.dart';
 import '../../features/main/presentation/pages/main_screen.dart';
 import '../../features/briefing/presentation/pages/briefing_screen.dart';
+import '../../features/briefing/presentation/pages/daily_briefing_screen.dart';
+import '../../features/briefing/presentation/pages/news_detail_screen.dart';
 import '../../features/briefing/presentation/pages/issue_detail_screen.dart';
 import '../../features/prediction/presentation/pages/prediction_screen.dart';
 import '../../features/reflection/presentation/pages/reflection_screen.dart';
@@ -40,6 +43,10 @@ class AppRouter extends _$AppRouter {
         AutoRoute(
           page: IssueDetailRoute.page,
           path: '/issue/:issueId',
+        ),
+        AutoRoute(
+          page: NewsDetailRoute.page,
+          path: '/news-detail',
         ),
         AutoRoute(
           page: WriteReflectionRoute.page,
