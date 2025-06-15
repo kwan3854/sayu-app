@@ -31,17 +31,10 @@ import 'features/briefing/data/datasources/briefing_remote_datasource.dart'
     as _i1066;
 import 'features/briefing/data/repositories/briefing_repository_impl.dart'
     as _i126;
-import 'features/briefing/data/repositories/issue_repository_impl.dart'
-    as _i634;
 import 'features/briefing/domain/repositories/briefing_repository.dart' as _i80;
-import 'features/briefing/domain/repositories/issue_repository.dart' as _i527;
 import 'features/briefing/domain/usecases/get_todays_briefing.dart' as _i390;
 import 'features/briefing/presentation/bloc/morning_briefing_bloc.dart'
     as _i921;
-import 'features/prediction/data/repositories/prediction_repository_impl.dart'
-    as _i754;
-import 'features/prediction/domain/repositories/prediction_repository.dart'
-    as _i656;
 
 extension GetItInjectableX on _i174.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt
@@ -71,12 +64,6 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i588.AuthRemoteDataSourceImpl(gh<_i454.SupabaseClient>()));
     gh.lazySingleton<_i80.BriefingRepository>(() =>
         _i126.BriefingRepositoryImpl(gh<_i1066.BriefingRemoteDataSource>()));
-    gh.lazySingleton<_i656.PredictionRepository>(
-        () => _i754.PredictionRepositoryImpl(gh<_i450.PerplexityApiService>()));
-    gh.lazySingleton<_i527.IssueRepository>(() => _i634.IssueRepositoryImpl(
-          gh<_i450.PerplexityApiService>(),
-          gh<_i828.AppConfig>(),
-        ));
     gh.lazySingleton<_i1015.AuthRepository>(
         () => _i111.AuthRepositoryImpl(gh<_i588.AuthRemoteDataSource>()));
     gh.lazySingleton<_i302.SignInWithAppleUseCase>(

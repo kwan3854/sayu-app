@@ -11,10 +11,6 @@ import '../../features/main/presentation/pages/main_screen.dart';
 import '../../features/briefing/presentation/pages/briefing_screen.dart';
 import '../../features/briefing/presentation/pages/daily_briefing_screen.dart';
 import '../../features/briefing/presentation/pages/news_detail_screen.dart';
-import '../../features/briefing/presentation/pages/issue_detail_screen.dart';
-import '../../features/prediction/presentation/pages/prediction_screen.dart';
-import '../../features/reflection/presentation/pages/reflection_screen.dart';
-import '../../features/reflection/presentation/pages/write_reflection_screen.dart';
 import '../../features/profile/presentation/pages/profile_screen.dart';
 
 part 'app_router.gr.dart';
@@ -41,16 +37,8 @@ class AppRouter extends _$AppRouter {
           path: '/register',
         ),
         AutoRoute(
-          page: IssueDetailRoute.page,
-          path: '/issue/:issueId',
-        ),
-        AutoRoute(
           page: NewsDetailRoute.page,
           path: '/news-detail',
-        ),
-        AutoRoute(
-          page: WriteReflectionRoute.page,
-          path: '/write-reflection',
         ),
         AutoRoute(
           page: MainRoute.page,
@@ -59,14 +47,6 @@ class AppRouter extends _$AppRouter {
             AutoRoute(
               page: BriefingRoute.page,
               path: 'briefing',
-            ),
-            AutoRoute(
-              page: PredictionRoute.page,
-              path: 'prediction',
-            ),
-            AutoRoute(
-              page: ReflectionRoute.page,
-              path: 'reflection',
             ),
             AutoRoute(
               page: ProfileRoute.page,

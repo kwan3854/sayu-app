@@ -43,7 +43,13 @@
       "Bash(supabase link:*)",
       "Bash(psql:*)",
       "Bash(supabase stop:*)",
-      "Bash(supabase start:*)"
+      "Bash(supabase start:*)",
+      "Bash(lib/features/briefing/domain/entities/issue_detail.dart )",
+      "Bash(lib/features/briefing/domain/entities/perspective.dart )",
+      "Bash(lib/features/briefing/domain/repositories/issue_repository.dart )",
+      "Bash(lib/features/briefing/domain/usecases/get_issues.dart )",
+      "Bash(lib/features/briefing/data/repositories/issue_repository_impl.dart )",
+      "Bash(lib/features/briefing/data/repositories/issue_repository_mock.dart)"
     ],
     "deny": []
   }

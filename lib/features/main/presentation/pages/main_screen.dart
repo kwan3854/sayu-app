@@ -12,8 +12,6 @@ class MainScreen extends StatelessWidget {
     return AutoTabsScaffold(
       routes: const [
         BriefingRoute(),
-        PredictionRoute(),
-        ReflectionRoute(),
         ProfileRoute(),
       ],
       bottomNavigationBuilder: (_, tabsRouter) {
@@ -29,16 +27,6 @@ class MainScreen extends StatelessWidget {
               icon: Icon(Icons.wb_sunny_outlined),
               activeIcon: Icon(Icons.wb_sunny),
               label: '사유의 아침',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.insights_outlined),
-              activeIcon: Icon(Icons.insights),
-              label: '통찰',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.edit_note_outlined),
-              activeIcon: Icon(Icons.edit_note),
-              label: '성찰',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.person_outline),
