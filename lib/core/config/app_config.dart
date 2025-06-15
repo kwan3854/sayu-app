@@ -1,28 +1,20 @@
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:injectable/injectable.dart';
 
 @lazySingleton
 class AppConfig {
   // API Keys
-  String get perplexityApiKey => const String.fromEnvironment(
-    'PERPLEXITY_API_KEY',
-    defaultValue: '',
-  );
+  String get perplexityApiKey => dotenv.env['PERPLEXITY_API_KEY'] ?? '';
   
-  String get supabaseUrl => const String.fromEnvironment(
-    'SUPABASE_URL',
-    defaultValue: '',
-  );
+  String get supabaseUrl => dotenv.env['SUPABASE_URL'] ?? '';
   
-  String get supabaseAnonKey => const String.fromEnvironment(
-    'SUPABASE_ANON_KEY',
-    defaultValue: '',
-  );
+  String get supabaseAnonKey => dotenv.env['SUPABASE_ANON_KEY'] ?? '';
   
   // Feature Flags
-  bool get useMockData => const bool.fromEnvironment(
-    'USE_MOCK_DATA',
-    defaultValue: true,
-  );
+  bool get useMockData {
+    final envValue = dotenv.env['USE_MOCK_DATA'];
+    return envValue?.toLowerCase() == 'true';
+  }
   
   bool get debugMode => const bool.fromEnvironment(
     'DEBUG_MODE',

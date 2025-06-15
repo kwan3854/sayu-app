@@ -1,0 +1,27 @@
+<!-- Add these entries to your existing AndroidManifest.xml file -->
+<!-- Add inside the <application> tag -->
+
+<!-- OAuth Redirect Activity -->
+<activity
+    android:name="com.linusu.flutter_web_auth_2.CallbackActivity"
+    android:exported="true">
+    <intent-filter android:label="flutter_web_auth_2">
+        <action android:name="android.intent.action.VIEW" />
+        <category android:name="android.intent.category.DEFAULT" />
+        <category android:name="android.intent.category.BROWSABLE" />
+        <data android:scheme="io.supabase.sayu" />
+    </intent-filter>
+</activity>
+
+<!-- Also add this for app links support -->
+<intent-filter>
+    <action android:name="android.intent.action.VIEW" />
+    <category android:name="android.intent.category.DEFAULT" />
+    <category android:name="android.intent.category.BROWSABLE" />
+    
+    <!-- Replace with your Supabase URL -->
+    <data
+        android:scheme="https"
+        android:host="YOUR_SUPABASE_PROJECT_ID.supabase.co"
+        android:pathPrefix="/auth/v1/callback" />
+</intent-filter>

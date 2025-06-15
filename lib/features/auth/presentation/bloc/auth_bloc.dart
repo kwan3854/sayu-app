@@ -6,6 +6,8 @@ import '../../domain/entities/user.dart';
 import '../../domain/usecases/sign_in_usecase.dart';
 import '../../domain/usecases/sign_up_usecase.dart';
 import '../../domain/usecases/sign_out_usecase.dart';
+import '../../domain/usecases/sign_in_with_google_usecase.dart';
+import '../../domain/usecases/sign_in_with_apple_usecase.dart';
 import '../../domain/repositories/auth_repository.dart';
 
 part 'auth_event.dart';
@@ -16,18 +18,24 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final SignInUseCase signInUseCase;
   final SignUpUseCase signUpUseCase;
   final SignOutUseCase signOutUseCase;
+  final SignInWithGoogleUseCase signInWithGoogleUseCase;
+  final SignInWithAppleUseCase signInWithAppleUseCase;
   final AuthRepository authRepository;
 
   AuthBloc({
     required this.signInUseCase,
     required this.signUpUseCase,
     required this.signOutUseCase,
+    required this.signInWithGoogleUseCase,
+    required this.signInWithAppleUseCase,
     required this.authRepository,
   }) : super(const AuthInitial()) {
     on<AuthCheckRequested>(_onAuthCheckRequested);
     on<AuthSignInRequested>(_onAuthSignInRequested);
     on<AuthSignUpRequested>(_onAuthSignUpRequested);
     on<AuthSignOutRequested>(_onAuthSignOutRequested);
+    on<AuthSignInWithGoogleRequested>(_onAuthSignInWithGoogleRequested);
+    on<AuthSignInWithAppleRequested>(_onAuthSignInWithAppleRequested);
     
     // Listen to auth state changes
     authRepository.authStateChanges.listen((user) {
@@ -95,6 +103,34 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     result.fold(
       (failure) => emit(AuthError(failure.message)),
       (_) => emit(const AuthUnauthenticated()),
+    );
+  }
+
+  Future<void> _onAuthSignInWithGoogleRequested(
+    AuthSignInWithGoogleRequested event,
+    Emitter<AuthState> emit,
+  ) async {
+    emit(const AuthLoading());
+    
+    final result = await signInWithGoogleUseCase(NoParams());
+    
+    result.fold(
+      (failure) => emit(AuthError(failure.message)),
+      (user) => emit(AuthAuthenticated(user)),
+    );
+  }
+
+  Future<void> _onAuthSignInWithAppleRequested(
+    AuthSignInWithAppleRequested event,
+    Emitter<AuthState> emit,
+  ) async {
+    emit(const AuthLoading());
+    
+    final result = await signInWithAppleUseCase(NoParams());
+    
+    result.fold(
+      (failure) => emit(AuthError(failure.message)),
+      (user) => emit(AuthAuthenticated(user)),
     );
   }
 }

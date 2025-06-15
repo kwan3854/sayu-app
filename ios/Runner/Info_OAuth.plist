@@ -1,0 +1,40 @@
+<!-- Add these entries to your existing Info.plist file -->
+<!-- OAuth Configuration for Supabase -->
+
+<!-- URL Schemes for OAuth callbacks -->
+<key>CFBundleURLTypes</key>
+<array>
+    <dict>
+        <key>CFBundleURLSchemes</key>
+        <array>
+            <string>io.supabase.sayu</string>
+        </array>
+    </dict>
+    <dict>
+        <key>CFBundleURLSchemes</key>
+        <array>
+            <!-- Replace with your app's bundle identifier -->
+            <string>com.yourcompany.sayu</string>
+        </array>
+    </dict>
+</array>
+
+<!-- Google Sign-In Configuration -->
+<!-- Replace YOUR_REVERSED_CLIENT_ID with your actual Google OAuth iOS client ID reversed -->
+<!-- Example: if your client ID is "123456789-abcdefg.apps.googleusercontent.com" -->
+<!-- then reversed client ID is "com.googleusercontent.apps.123456789-abcdefg" -->
+<key>CFBundleURLTypes</key>
+<array>
+    <dict>
+        <key>CFBundleURLSchemes</key>
+        <array>
+            <string>YOUR_REVERSED_CLIENT_ID</string>
+        </array>
+    </dict>
+</array>
+
+<!-- Apple Sign-In Configuration -->
+<key>com.apple.developer.applesignin</key>
+<array>
+    <string>Default</string>
+</array>

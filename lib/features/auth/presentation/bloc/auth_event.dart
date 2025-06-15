@@ -42,3 +42,11 @@ class AuthSignUpRequested extends AuthEvent {
 class AuthSignOutRequested extends AuthEvent {
   const AuthSignOutRequested();
 }
+
+class AuthSignInWithGoogleRequested extends AuthEvent {
+  const AuthSignInWithGoogleRequested();
+}
+
+class AuthSignInWithAppleRequested extends AuthEvent {
+  const AuthSignInWithAppleRequested();
+}

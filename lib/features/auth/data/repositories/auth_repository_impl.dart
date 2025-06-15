@@ -24,7 +24,18 @@ class AuthRepositoryImpl implements AuthRepository {
         return const Left(AuthFailure('로그인에 실패했습니다'));
       }
     } on AuthException catch (e) {
-      return Left(AuthFailure(e.message, code: e.statusCode));
+      String message = e.message;
+      // Translate common error messages to Korean
+      if (e.message.contains('Invalid login credentials')) {
+        message = '이메일 또는 비밀번호가 올바르지 않습니다';
+      } else if (e.message.contains('User already registered')) {
+        message = '이미 등록된 이메일입니다';
+      } else if (e.message.contains('Password should be at least')) {
+        message = '비밀번호는 최소 6자 이상이어야 합니다';
+      } else if (e.message.contains('Invalid email')) {
+        message = '올바른 이메일 형식이 아닙니다';
+      }
+      return Left(AuthFailure(message, code: e.statusCode));
     } catch (e) {
       return Left(UnknownFailure(e.toString()));
     }
@@ -41,7 +52,18 @@ class AuthRepositoryImpl implements AuthRepository {
         return const Left(AuthFailure('회원가입에 실패했습니다'));
       }
     } on AuthException catch (e) {
-      return Left(AuthFailure(e.message, code: e.statusCode));
+      String message = e.message;
+      // Translate common error messages to Korean
+      if (e.message.contains('Invalid login credentials')) {
+        message = '이메일 또는 비밀번호가 올바르지 않습니다';
+      } else if (e.message.contains('User already registered')) {
+        message = '이미 등록된 이메일입니다';
+      } else if (e.message.contains('Password should be at least')) {
+        message = '비밀번호는 최소 6자 이상이어야 합니다';
+      } else if (e.message.contains('Invalid email')) {
+        message = '올바른 이메일 형식이 아닙니다';
+      }
+      return Left(AuthFailure(message, code: e.statusCode));
     } catch (e) {
       return Left(UnknownFailure(e.toString()));
     }
@@ -53,7 +75,74 @@ class AuthRepositoryImpl implements AuthRepository {
       await _remoteDataSource.signOut();
       return const Right(null);
     } on AuthException catch (e) {
-      return Left(AuthFailure(e.message, code: e.statusCode));
+      String message = e.message;
+      // Translate common error messages to Korean
+      if (e.message.contains('Invalid login credentials')) {
+        message = '이메일 또는 비밀번호가 올바르지 않습니다';
+      } else if (e.message.contains('User already registered')) {
+        message = '이미 등록된 이메일입니다';
+      } else if (e.message.contains('Password should be at least')) {
+        message = '비밀번호는 최소 6자 이상이어야 합니다';
+      } else if (e.message.contains('Invalid email')) {
+        message = '올바른 이메일 형식이 아닙니다';
+      }
+      return Left(AuthFailure(message, code: e.statusCode));
+    } catch (e) {
+      return Left(UnknownFailure(e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, SayuUser>> signInWithGoogle() async {
+    try {
+      final response = await _remoteDataSource.signInWithGoogle();
+      if (response.user != null) {
+        final user = UserModel.fromSupabaseUser(response.user!);
+        return Right(user);
+      } else {
+        return const Left(AuthFailure('Google 로그인에 실패했습니다'));
+      }
+    } on AuthException catch (e) {
+      String message = e.message;
+      // Translate common error messages to Korean
+      if (e.message.contains('Invalid login credentials')) {
+        message = '이메일 또는 비밀번호가 올바르지 않습니다';
+      } else if (e.message.contains('User already registered')) {
+        message = '이미 등록된 이메일입니다';
+      } else if (e.message.contains('Password should be at least')) {
+        message = '비밀번호는 최소 6자 이상이어야 합니다';
+      } else if (e.message.contains('Invalid email')) {
+        message = '올바른 이메일 형식이 아닙니다';
+      }
+      return Left(AuthFailure(message, code: e.statusCode));
+    } catch (e) {
+      return Left(UnknownFailure(e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, SayuUser>> signInWithApple() async {
+    try {
+      final response = await _remoteDataSource.signInWithApple();
+      if (response.user != null) {
+        final user = UserModel.fromSupabaseUser(response.user!);
+        return Right(user);
+      } else {
+        return const Left(AuthFailure('Apple 로그인에 실패했습니다'));
+      }
+    } on AuthException catch (e) {
+      String message = e.message;
+      // Translate common error messages to Korean
+      if (e.message.contains('Invalid login credentials')) {
+        message = '이메일 또는 비밀번호가 올바르지 않습니다';
+      } else if (e.message.contains('User already registered')) {
+        message = '이미 등록된 이메일입니다';
+      } else if (e.message.contains('Password should be at least')) {
+        message = '비밀번호는 최소 6자 이상이어야 합니다';
+      } else if (e.message.contains('Invalid email')) {
+        message = '올바른 이메일 형식이 아닙니다';
+      }
+      return Left(AuthFailure(message, code: e.statusCode));
     } catch (e) {
       return Left(UnknownFailure(e.toString()));
     }

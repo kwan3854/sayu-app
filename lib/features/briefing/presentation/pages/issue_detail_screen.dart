@@ -273,7 +273,7 @@ class _IssueDetailScreenState extends State<IssueDetailScreen> {
             padding: const EdgeInsets.only(bottom: 12),
             child: _ExpandableKnowledgeCard(knowledge: knowledge),
           );
-        }).toList(),
+        }),
       ],
     );
   }
@@ -877,7 +877,7 @@ class _IssueDetailScreenState extends State<IssueDetailScreen> {
               ),
             ),
           );
-        }).toList(),
+        }),
       ],
     );
   }
